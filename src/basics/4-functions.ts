@@ -8,10 +8,10 @@ function toUpper(str: string): string {
 
 // overloaded function
 interface MyPosition {
-  x: number;
-  y: number;
+  x: number | undefined;
+  y: number | undefined;
 }
-interface MyPositionWithDef extends Position {
+interface MyPositionWithDef extends MyPosition {
   default: string;
 }
 
