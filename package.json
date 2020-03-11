@@ -1,0 +1,8 @@
+{
+  "name": "junkyard",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:VladVes/junkyard.git",
+  "author": "VladVes <veselov.workflow@gmail.com>",
+  "license": "MIT"
+}
