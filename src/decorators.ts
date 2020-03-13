@@ -101,7 +101,6 @@ type FF = {
   }
 }
 
-
 function a(b: FF): {} {
   const q = b("2")
   const bq = b.q

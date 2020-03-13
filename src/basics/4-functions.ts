@@ -1,3 +1,4 @@
+
 function add(a: number, b: number): number {
   return a + b;
 }
@@ -11,6 +12,7 @@ interface MyPosition {
   x: number | undefined;
   y: number | undefined;
 }
+
 interface MyPositionWithDef extends MyPosition {
   default: string;
 }
@@ -30,3 +32,7 @@ function position(a?: number, b?: number): MyPosition | MyPositionWithDef {
 
   return { x: a, y: b };
 }
+
+declare function fnZ(o: object | null): void;
+fnZ(null);
+// fnZ(123);
