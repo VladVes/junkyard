@@ -23,9 +23,9 @@ function DecProp(target: any, propName: string | symbol) {
 }
 
 function DecMeth(target: any, propName: string | symbol, descriptor: PropertyDescriptor) {
-  console.log('target from decorator DecMeth: ', target); // here will be class 
-  console.log('propName from decorator DecMeth: ', propName); // here will be property 
-  console.log('descriptor from decorator DecMeth: ', descriptor); // here will be property 
+  console.log('target from decorator DecMeth: ', target); // here will be the class 
+  console.log('propName from decorator DecMeth: ', propName); // here will be the property 
+  console.log('descriptor from decorator DecMeth: ', descriptor); // here will be the property 
 }
 
 function DecGetter(target: any, propName: string | symbol, descriptor: PropertyDescriptor) {
@@ -79,7 +79,7 @@ type overLoadedFn = {
   (s: string): number;
 }
 
-// overloaded fn what should be implemented 
+// overloaded fn (it should be implemented)
 function FFF(a1: string): string;
 function FFF(a2: number): number;
 function FFF(a: string | number): string | number | undefined {

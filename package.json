@@ -19,5 +19,8 @@
   "homepage": "https://github.com/VladVes/junkyard#readme",
   "devDependencies": {
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "axios": "^0.20.0"
   }
 }
