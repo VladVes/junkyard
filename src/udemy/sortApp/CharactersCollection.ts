@@ -1,7 +1,10 @@
-import { Sortable } from "./Sorter";
+import { Sorter, Sortable } from "./Sorter";
 
-export class CharactersCollection implements Sortable {
-  constructor(public data: string) {}
+// don't need to implement Sortable
+export class CharactersCollection extends Sorter implements Sortable {
+  constructor(public data: string) {
+    super();
+  }
 
   get length(): number {
     return this.data.length;
