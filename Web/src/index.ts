@@ -2,10 +2,8 @@ import { User } from "./models/User";
 import axios from "axios";
 
 // const user = new User({ id: 1 });
-const user = new User({ name: "Bob", age: 14 });
-// user.set({ name: "Ivan", age: 35 });
-user.save();
+const user = new User({ name: "Jane", age: 20 });
 
-// setTimeout(() => {
-//   console.log(user);
-// }, 4000);
+console.log(user.get("name"));
+user.on("change", () => console.log("user has changed!"));
+user.trigger("change");
