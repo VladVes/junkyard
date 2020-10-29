@@ -2,6 +2,7 @@ import { Model } from "./Model";
 import { Attributes } from "./Attributes";
 import { ApiSync } from "./ApiSync";
 import { Eventing } from "./Eventing";
+import { Collection } from "./Collection";
 
 export interface UserProps {
   id?: number;
@@ -9,15 +10,22 @@ export interface UserProps {
   age?: number;
 }
 
-const rootUrl = "http://localhost:3000/users";
+const defaultRootUrl = "http://localhost:3000/users";
 
 export class User extends Model<UserProps> {
   static buildUser(attrs: UserProps) {
     return new User(
       new Attributes<UserProps>(attrs),
       new Eventing(),
-      new ApiSync<UserProps>(rootUrl)
+      new ApiSync<UserProps>(defaultRootUrl)
     );
+  }
+
+  static buildUserCollection(
+    rootUrl: string = defaultRootUrl
+  ): Collection<User, UserProps> {
+    const collection = new Collection<User, UserProps>(rootUrl, this.buildUser);
+    return collection;
   }
 
   isAdminUser(): boolean {
