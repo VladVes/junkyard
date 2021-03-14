@@ -1,2 +1,3 @@
 # TypeScript junkyard
-code stuff
+digging in TS code stuff
+
