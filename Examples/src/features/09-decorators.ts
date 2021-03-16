@@ -4,13 +4,14 @@ class Boat {
   get formattedColor(): string {
     return `This boat color is ${this.color}`;
   }
-  @testDecorator
+  @logError
   pilot(): void {
+    throw new Error();
     console.log('swish')
   }
 }
 
-function testDecorator(target: any, key: string): void {
+function logError(target: any, key: string, desc: PropertyDescriptor): void {
   console.log(target);
   console.log(key);
 }
