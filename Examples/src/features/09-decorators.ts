@@ -1,32 +1,44 @@
+@classDecorator
 class Boat {
   // @testDecorator1
-  color: string = 'green';
+  color: string = "green";
 
   // @testDecorator2
   get formattedColor(): string {
     return `This boat color is ${this.color}`;
   }
 
-  @logError('Oops, boat was sunk')
-  run(@paramDecorator speed: number, @paramDecorator generateWake: boolean): void {
-    throw new Error();
-    console.log('swish')
+  // @logError('Oops, boat was sunk')
+  run(
+    @paramDecorator speed: string,
+    @paramDecorator generateWake: boolean
+  ): void {
+    if (speed === "fast") {
+      console.log("swish");
+    } else {
+      console.log("nothing");
+    }
   }
 
   // @logError('Oops, boat was sunk')
   pilot(): void {
     throw new Error();
-    console.log('swish')
+    console.log("swish");
   }
 }
 
-function paramDecorator(target: any, key: string, index: number) { // декоратор на параметры
+function classDecorator(constructor: typeof Boat) {
+  console.log(constructor);
+}
+
+function paramDecorator(target: any, key: string, index: number) {
+  // декоратор на параметры
   console.log(key);
   console.log(index);
 }
 
-
-function testDecorator2(target: any, key: string, desc: PropertyDescriptor) { // декоратор на акксессоре
+function testDecorator2(target: any, key: string, desc: PropertyDescriptor) {
+  // декоратор на акксессоре
   console.log(target);
   console.log(key);
   console.log(desc);
@@ -49,8 +61,8 @@ function logError(errorMessage: string) {
       } catch (e) {
         console.log(errorMessage);
       }
-    }
-  }
+    };
+  };
 }
 
 // new Boat().pilot();
