@@ -11,34 +11,18 @@ function requireAuth(req: Request, res: Response, next: NextFunction): void {
   }
 
   res.status(403);
-  res.send('Not permitted');
+  res.send("Not permitted");
 }
 
 const router = Router();
 
-router.get("/login", (req: Request, res: Response) => {
-  res.send(`
-    <form method="post">
-      <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-      </div>
-      <div>
-        <label for="password"ll>Password</label>
-        <input type="password" name="password" id="password">
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-  `);
-});
-
 router.post("/login", (req: RequestWithBody, res: Response) => {
   const { email, password } = req.body;
-  if (email && password && email === 'my@my.com' && password === 'mypass') {
+  if (email && password && email === "my@my.com" && password === "mypass") {
     req.session = { loggedIn: true };
-    res.redirect('/');
+    res.redirect("/");
   } else {
-    res.send('Invalid email or password');
+    res.send("Invalid email or password");
   }
 });
 
@@ -62,11 +46,11 @@ router.get("/", (req: Request, res: Response) => {
 
 router.get("/logout", (req: Request, res: Response) => {
   req.session = undefined;
-  res.redirect('/');
+  res.redirect("/");
 });
 
 router.get("/protected", requireAuth, (req: Request, res: Response) => {
-  res.send('Welcome to protected route, logged in user');
+  res.send("Welcome to protected route, logged in user");
 });
 
 export { router };
